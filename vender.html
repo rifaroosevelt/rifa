@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es-UY">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Panel de vendedores · Rifa Roosevelt</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0B3D91">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Kaushan+Script&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="panel-body">
+  <header class="barra">
+    <div class="contenedor">
+      <a class="marca" href="vender.html">
+        <img src="img/logo.svg" alt="" width="44" height="44">
+        <div><b>Vendedores</b><span>Rifa Escuela Roosevelt</span></div>
+      </a>
+      <nav id="nav-sesion" hidden>
+        <span id="quien" style="font-weight:700;font-size:.9rem"></span>
+        <a href="#" id="salir">Salir</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="v-login" class="contenedor login" hidden>
+    <form class="tarjeta" id="form-login">
+      <h1>Ingresar</h1>
+      <p class="bajada" style="color:var(--texto-suave)">Usá el usuario y la contraseña que te dio la Escuela.</p>
+      <div class="campo"><label for="l-usuario">Usuario</label><input id="l-usuario" autocomplete="username" autocapitalize="none" required></div>
+      <div class="campo"><label for="l-clave">Contraseña</label><input id="l-clave" type="password" autocomplete="current-password" required></div>
+      <button class="btn btn-azul btn-bloque btn-grande" type="submit">Ingresar</button>
+    </form>
+  </section>
+
+  <div id="v-app" hidden>
+    <div class="contenedor">
+      <div class="pestanas" role="tablist">
+        <button class="activo" data-vista="vender">🎟️ Vender</button>
+        <button data-vista="ventas">📋 Mis ventas</button>
+      </div>
+    </div>
+
+    <section class="contenedor vista" id="vista-vender">
+      <div id="venta-form">
+        <div class="tarjeta" style="margin-bottom:14px">
+          <h2 style="font-size:1.4rem">1. Elegí los números</h2>
+          <div id="grilla"></div>
+        </div>
+
+        <form class="tarjeta" id="form-venta" novalidate>
+          <h2 style="font-size:1.4rem">2. Datos del comprador</h2>
+          <div class="resumen-compra">
+            <div class="fila"><span>Números</span><span id="sel-numeros">Ninguno</span></div>
+            <div class="fila"><span>Total</span><span class="total" id="sel-total">$0</span></div>
+          </div>
+          <div class="grupo-form dos">
+            <div class="campo"><label for="c-nombre">Nombre y apellido</label><input id="c-nombre" name="nombre" autocomplete="off" required maxlength="80"></div>
+            <div class="campo"><label for="c-tel">Teléfono</label><input id="c-tel" name="telefono" type="tel" inputmode="tel" autocomplete="off" required maxlength="25"></div>
+          </div>
+          <div class="campo"><label for="c-email">Correo (opcional)</label><input id="c-email" name="email" type="email" inputmode="email" autocomplete="off" maxlength="100"><small>Si lo completás, le llega el comprobante por correo.</small></div>
+
+          <h2 style="font-size:1.4rem">3. ¿Cómo paga?</h2>
+          <div class="segmentado">
+            <label><input type="radio" name="metodo" value="efectivo"><span aria-hidden="true">💵</span>Efectivo</label>
+            <label><input type="radio" name="metodo" value="mercadopago"><span aria-hidden="true">📱</span>Mercado Pago</label>
+          </div>
+          <div class="confirmacion-efectivo" id="conf-efectivo" hidden>
+            <label class="check" id="conf-label"><input type="checkbox" id="c-cobre" disabled><span id="conf-texto">Elegí primero los números</span></label>
+            <small id="conf-ayuda" style="display:block;margin-top:6px;color:var(--texto-suave)">Marcalo solo cuando ya tengas el dinero en la mano: al confirmar, los números quedan vendidos.</small>
+          </div>
+          <p class="nota" id="nota-mp" hidden>Se genera un link y un código QR de Mercado Pago. Los números quedan reservados 30 minutos y se marcan vendidos solo cuando el pago se aprueba.</p>
+          <button class="btn btn-pri btn-grande btn-bloque" type="submit" id="btn-vender" style="margin-top:12px">Confirmar venta</button>
+        </form>
+      </div>
+
+      <div id="venta-resultado" hidden></div>
+    </section>
+
+    <section class="contenedor vista" id="vista-ventas" hidden>
+      <div class="kpis" id="mis-kpis"></div>
+      <div class="lista-ventas" id="mis-ventas"></div>
+    </section>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/comun.js"></script>
+  <script src="js/vender.js"></script>
+</body>
+</html>

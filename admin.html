@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="es-UY">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Administración · Rifa Roosevelt</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0B3D91">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Kaushan+Script&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="panel-body">
+  <header class="barra">
+    <div class="contenedor">
+      <a class="marca" href="admin.html">
+        <img src="img/logo.svg" alt="" width="44" height="44">
+        <div><b>Administración</b><span>Rifa Escuela Roosevelt</span></div>
+      </a>
+      <nav id="nav-sesion" hidden>
+        <span id="quien" style="font-weight:700;font-size:.9rem"></span>
+        <a href="#" id="salir">Salir</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="v-login" class="contenedor login" hidden>
+    <form class="tarjeta" id="form-login">
+      <h1>Administración</h1>
+      <p style="color:var(--texto-suave)">Acceso exclusivo para la administración de la Escuela.</p>
+      <div class="campo"><label for="l-usuario">Usuario</label><input id="l-usuario" autocomplete="username" autocapitalize="none" required></div>
+      <div class="campo"><label for="l-clave">Contraseña</label><input id="l-clave" type="password" autocomplete="current-password" required></div>
+      <button class="btn btn-azul btn-bloque btn-grande" type="submit">Ingresar</button>
+    </form>
+  </section>
+
+  <div id="v-app" hidden>
+    <div class="contenedor">
+      <div class="pestanas" role="tablist">
+        <button class="activo" data-vista="resumen">📊 Resumen</button>
+        <button data-vista="vendidos">📋 Vendidos</button>
+        <button data-vista="buscar">🔎 Buscar</button>
+        <button data-vista="operaciones">🧾 Operaciones</button>
+        <button data-vista="movimientos">🕓 Historial</button>
+        <button data-vista="vendedores">👥 Vendedores</button>
+        <button data-vista="exportar">⬇️ Exportar</button>
+      </div>
+    </div>
+
+    <section class="contenedor vista" id="vista-resumen"></section>
+
+    <section class="contenedor vista" id="vista-vendidos" hidden>
+      <div class="cab-panel">
+        <h2 style="margin:0">Números vendidos</h2>
+        <div class="filtros">
+          <button class="btn btn-sec btn-chico" id="vend-actualizar">↻ Actualizar</button>
+          <button class="btn btn-azul btn-chico" id="vend-descargar">⬇️ Descargar esta lista</button>
+        </div>
+      </div>
+      <div class="filtros tarjeta" style="margin-bottom:12px">
+        <label class="sr" for="vf-texto">Buscar</label>
+        <input id="vf-texto" placeholder="Número, nombre, teléfono o correo" style="flex:1 1 220px">
+        <label class="sr" for="vf-canal">Canal</label>
+        <select id="vf-canal"><option value="">Online y presencial</option><option value="online">Solo online</option><option value="presencial">Solo presencial</option></select>
+        <label class="sr" for="vf-metodo">Método</label>
+        <select id="vf-metodo"><option value="">Efectivo y Mercado Pago</option><option value="efectivo">Solo efectivo</option><option value="mercadopago">Solo Mercado Pago</option></select>
+        <label class="sr" for="vf-vendedor">Vendedor</label>
+        <select id="vf-vendedor"><option value="">Todos los vendedores</option></select>
+      </div>
+      <div class="kpis" id="vend-kpis"></div>
+      <div id="res-vendidos"></div>
+    </section>
+
+    <section class="contenedor vista" id="vista-buscar" hidden>
+      <form class="buscador tarjeta" id="form-buscar" style="margin-bottom:14px">
+        <label class="sr" for="q">Buscar</label>
+        <input id="q" placeholder="Número (1985), nombre, teléfono, correo u operación">
+        <button class="btn btn-azul" type="submit">Buscar</button>
+      </form>
+      <div id="res-buscar"></div>
+    </section>
+
+    <section class="contenedor vista" id="vista-operaciones" hidden>
+      <div class="cab-panel">
+        <h2 style="margin:0">Operaciones</h2>
+        <div class="filtros">
+          <label class="sr" for="f-estado">Estado</label>
+          <select id="f-estado">
+            <option value="">Todas</option>
+            <option value="pendiente">Pendientes</option>
+            <option value="aprobada">Aprobadas</option>
+            <option value="revisar">Para revisar</option>
+            <option value="vencida">Vencidas</option>
+            <option value="cancelada">Canceladas</option>
+            <option value="anulada">Anuladas</option>
+          </select>
+        </div>
+      </div>
+      <div id="res-operaciones"></div>
+    </section>
+
+    <section class="contenedor vista" id="vista-movimientos" hidden>
+      <h2>Historial de movimientos</h2>
+      <p style="color:var(--texto-suave)">Últimos 300 registros. El historial completo está en la hoja MOVIMIENTOS y se puede exportar.</p>
+      <div id="res-movimientos"></div>
+    </section>
+
+    <section class="contenedor vista" id="vista-vendedores" hidden>
+      <div class="dos-col">
+        <form class="tarjeta" id="form-vendedor">
+          <h2 id="titulo-vendedor">Agregar vendedor</h2>
+          <input type="hidden" name="id">
+          <div class="campo"><label for="v-nombre">Nombre y apellido</label><input id="v-nombre" name="nombre" required></div>
+          <div class="campo"><label for="v-usuario">Usuario</label><input id="v-usuario" name="usuario" autocapitalize="none" required><small>Letras, números o punto. Ej.: maria.perez</small></div>
+          <div class="campo"><label for="v-clave">Contraseña</label><input id="v-clave" name="clave" type="text" autocomplete="new-password"><small id="ayuda-clave">Mínimo 8 caracteres. Entregásela en persona.</small></div>
+          <div class="grupo-form dos">
+            <div class="campo"><label for="v-rol">Rol</label><select id="v-rol" name="rol"><option value="vendedor">Vendedor</option><option value="admin">Administrador</option></select></div>
+            <div class="campo"><label for="v-activo">Estado</label><select id="v-activo" name="activo"><option value="SÍ">Habilitado</option><option value="NO">Deshabilitado</option></select></div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn btn-azul" type="submit">Guardar</button>
+            <button class="btn btn-ghost" type="button" id="v-cancelar" hidden>Cancelar edición</button>
+          </div>
+        </form>
+
+        <form class="tarjeta" id="form-asignar">
+          <h2>Talonarios físicos</h2>
+          <p style="color:var(--texto-suave);margin-top:0">Asigná a cada vendedor los números de su talonario impreso. Esos números no se venden por la web: solo los puede vender ese vendedor (o la administración).</p>
+          <div class="grupo-form dos">
+            <div class="campo"><label for="a-desde">Desde</label><input id="a-desde" name="desde" inputmode="numeric" placeholder="1001" required></div>
+            <div class="campo"><label for="a-hasta">Hasta</label><input id="a-hasta" name="hasta" inputmode="numeric" placeholder="1050" required></div>
+          </div>
+          <div class="campo"><label for="a-vend">Vendedor</label><select id="a-vend" name="vendedorId"></select></div>
+          <button class="btn btn-azul" type="submit">Asignar</button>
+        </form>
+      </div>
+      <h2 style="margin-top:24px">Vendedores</h2>
+      <div id="res-vendedores"></div>
+    </section>
+
+    <section class="contenedor vista" id="vista-exportar" hidden>
+      <div class="tarjeta">
+        <h2>Exportar reportes</h2>
+        <p style="color:var(--texto-suave)">Descarga archivos CSV que se abren con Excel o Google Sheets.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn-azul" data-exportar="numeros">Números (2.000)</button>
+          <button class="btn btn-azul" data-exportar="operaciones">Operaciones</button>
+          <button class="btn btn-azul" data-exportar="movimientos">Historial</button>
+          <button class="btn btn-azul" data-exportar="vendedores">Vendedores</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <dialog id="dlg" aria-labelledby="dlg-titulo">
+    <div class="dlg-cab"><h2 id="dlg-titulo"></h2><button class="cerrar" type="button" aria-label="Cerrar" data-cerrar>×</button></div>
+    <form class="dlg-cuerpo" id="dlg-form" novalidate></form>
+  </dialog>
+
+  <script src="js/config.js"></script>
+  <script src="js/comun.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
