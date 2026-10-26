@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Escuela Roosevelt">
+  <!-- Recreación de la flor del logo de la Escuela. Si tienen el archivo original, reemplazar este (logo.svg o logo.png). -->
+  <g transform="translate(60 64)">
+    <defs><path id="p" d="M0 -6 C-9 -20 -10 -38 0 -52 C10 -38 9 -20 0 -6 Z"/></defs>
+    <use href="#p" transform="rotate(-100)" fill="#7DC243"/>
+    <use href="#p" transform="rotate(-65)" fill="#2BB3C0"/>
+    <use href="#p" transform="rotate(-30)" fill="#2E6FD8"/>
+    <use href="#p" transform="rotate(5)" fill="#7B4FC9"/>
+    <use href="#p" transform="rotate(40)" fill="#E8423A"/>
+    <use href="#p" transform="rotate(75)" fill="#F39A1E"/>
+    <use href="#p" transform="rotate(110)" fill="#F7C51E"/>
+    <circle r="7" fill="#FFFFFF"/>
+  </g>
+</svg>

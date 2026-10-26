@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true">
+  <!-- Hoja de palmera decorativa, como en los talones -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M10 190 C60 140 110 90 190 20" stroke="#2F6B2A" stroke-width="5"/>
+  </g>
+  <g fill="#3E8E3A">
+    <path d="M40 160 C20 150 5 130 0 108 C22 118 38 132 46 152 Z"/>
+    <path d="M58 142 C40 126 30 104 30 80 C48 96 60 114 64 134 Z"/>
+    <path d="M78 122 C64 102 60 78 66 54 C80 74 86 96 84 116 Z"/>
+    <path d="M98 102 C88 80 90 56 100 34 C110 56 110 78 104 98 Z"/>
+    <path d="M120 82 C114 60 120 36 134 16 C140 40 136 62 126 80 Z"/>
+  </g>
+  <g fill="#2F7A2C">
+    <path d="M52 152 C74 150 96 158 112 174 C88 176 68 168 52 152 Z"/>
+    <path d="M72 132 C96 126 120 130 140 144 C116 152 92 148 72 132 Z"/>
+    <path d="M92 112 C116 104 140 104 162 114 C140 126 114 126 92 112 Z"/>
+    <path d="M112 92 C134 82 158 78 180 84 C162 98 136 102 112 92 Z"/>
+    <path d="M134 70 C152 58 174 50 196 50 C182 66 158 74 134 70 Z"/>
+  </g>
+</svg>
