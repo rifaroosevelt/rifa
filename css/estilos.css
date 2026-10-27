@@ -87,7 +87,7 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--a
 }
 .barra .contenedor { display: flex; align-items: center; gap: 12px; min-height: 64px; }
 .marca { display: flex; align-items: center; gap: 8px; color: var(--azul-osc); text-decoration: none; }
-.marca img { width: 44px; height: 44px; }
+.marca img { width: 52px; height: 52px; object-fit: contain; }
 .marca b { font-family: var(--fuente-script); font-weight: 400; font-size: 1.35rem; line-height: 1; display: block; }
 .marca span { font-size: .78rem; font-weight: 800; color: var(--azul); white-space: nowrap; }
 .marca b { white-space: nowrap; }
@@ -120,7 +120,8 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--a
   display: inline-flex; align-items: center; gap: 8px; background: #fff; padding: 8px 18px 8px 10px;
   border-radius: 18px 26px 16px 28px; box-shadow: 0 4px 0 rgba(29, 60, 143, .08); transform: rotate(-2deg);
 }
-.logo-escuela img { width: 54px; height: 54px; }
+.logo-escuela { padding: 12px 18px; }
+.logo-escuela img { width: 150px; height: auto; }
 .logo-escuela div { font-family: var(--fuente-script); line-height: .95; color: var(--azul-osc); }
 .logo-escuela small { display: block; font-size: 1.05rem; }
 .logo-escuela b { display: block; font-weight: 400; font-size: 1.7rem; }
