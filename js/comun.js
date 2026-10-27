@@ -287,7 +287,7 @@ function htmlComprobante(d) {
   return `
     <article class="comprobante" id="comprobante">
       <header>
-        <img src="img/logo.svg" alt="" width="56" height="56">
+        <img src="img/logo.png" alt="" width="56" height="56">
         <div>
           <div class="comp-esc">Escuela Roosevelt</div>
           <h2>Comprobante de compra</h2>
